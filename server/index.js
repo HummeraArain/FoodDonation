@@ -46,9 +46,9 @@ io.on("connection", (socket) => {
   console.log("New user connected:", socket.id);
 
    // Join private room for applied meal/ notify donor
-  socket.on("joinNotificationRoom",async (donorId) => {
-    socket.join(donorId);
-    console.log(`User ${donorId} joined notification room`);
+  socket.on("joinNotificationRoom",async (userId) => {
+    socket.join(userId);
+    console.log(`User ${userId} joined notification room`);
   });
 
   // Join private room for chat

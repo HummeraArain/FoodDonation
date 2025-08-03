@@ -13,10 +13,13 @@ function DonorDashboard() {
 
   useEffect(() => {
     if (!user?._id) return;
+    console.log("inside donor useEffect!")
 
     socket.emit("joinNotificationRoom", user._id);
+    console.log("room join")
 
     const handleNotifyDonor = (data) => {
+      console.log("inisde hanlder")
       toast.success(
         `✅ ${data.recipientName} applied to "${data.campaignTitle}" for ${
           data.appliedPersons

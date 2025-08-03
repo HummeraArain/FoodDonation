@@ -294,6 +294,20 @@ async function updateStatus(req, res) {
       { upsert: true, new: true }
     );
 
+    // notify receipient for the granted meal
+    const io = req.app.get("io");
+
+    // Real-time notify the recipient who got awarded
+    if (io && p_id && p_name) {
+      io.to(p_id).emit("mealAwarded", {
+        message: `Congratulations ${p_name}, you have been awarded ${awardPersons} meal(s)!`,
+        campaignId: campaign._id,
+        campaignTitle: campaign.title,
+        awardedPersons: awardPersons,
+        awardDate: awardedEntry.a_date,
+      });
+    }
+
     return res.status(200).json({
       message: "Meal awarded successfully!",
       success: true,
