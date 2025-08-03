@@ -1,10 +1,10 @@
 import React from "react";
-import { useData } from "../context/UserContext";
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useData } from "../Context/UserContext";
 
 const Header = () => {
-  const { user } = useData();
+  const { user } = useData()
   const [search, setSearch] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const navigate = useNavigate();

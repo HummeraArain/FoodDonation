@@ -2,12 +2,12 @@ import { Outlet } from "react-router-dom";
 import SideBar from "./SideBar";
 import Header from "../../components/Header";
 import { useSocket } from "../../context/SocketProvider";
-import { useData } from "../../context/UserContext";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { useData } from "../../Context/UserContext";
 
 function RecipientDashboard() {
-  const { user } = useData();
+  const { user } = useData()
   const socket = useSocket();
   console.log("recipient dashboard render");
 

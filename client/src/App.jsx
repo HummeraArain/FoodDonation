@@ -23,6 +23,7 @@ import NotFound from "./pages/notFound/NotFound";
 import FAQSection from "./pages/FAQs/FAQsSection";
 import RecipientDashboard from "./pages/Recipent/RecipientDashboard";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import CookieBanner from "./components/CookieBanner";
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   return (
     <>
       <SessionInitializer />
+      <CookieBanner />
       <ScrollToTop />
       <ToastContainer />
       <Routes>
